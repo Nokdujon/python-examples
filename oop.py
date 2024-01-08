@@ -1,11 +1,8 @@
-"""Name Mingling"""
+"""Object Oriented Programming"""
 
 
 class Student:
-    """
-    Class Object Oriented Programming
-
-    """
+    """Class encapsulation"""
 
     def __init__(self, given_name: str, given_age: int):
         """
@@ -33,7 +30,7 @@ def name_mangling() -> None:
 
 
 class SuperClass:
-    """Class
+    """Class method overriding
     Python code to illustrate how mangling works
     With method overriding"""
 
@@ -64,8 +61,20 @@ class SubClass(SuperClass):
 
 
 def method_overriding() -> None:
+    """Function demonstrates method overriding"""
     super_class_obj = SuperClass()
     sub_class_obj = SubClass()
     super_class_obj.public()  # public: SuperClass
     sub_class_obj.public()  # public: In SubClass
     sub_class_obj._SuperClass__public()  # public: SuperClass
+
+
+def polymorphism() -> None:
+    """Function demonstrates polymorphism"""
+
+    # In the example, the same operator () to perform on a string, integer and
+    # a list. The () operator behaves differently in all three cases.
+    string = "poly"
+    sequence = [1, 2, 3]
+    print(len(string))  # 4
+    print(len(sequence))  # 3
