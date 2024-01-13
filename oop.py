@@ -4,7 +4,7 @@
 class Student:
     """Class encapsulation"""
 
-    def __init__(self, given_name: str, given_age: int):
+    def __init__(self, given_name: str, given_age: int) -> None:
         """
         self._a is a protected member and can be accessed by the class and its subclasses.
         Private members in Python are conventionally used with preceding double
@@ -58,18 +58,20 @@ class SuperClass:
     Python code to illustrate how mangling works
     With method overriding"""
 
-    def __init__(self):
+    def __init__(self, fruit: str) -> None:
         self.__private()
         self._protected()
         self.public()
 
-    def __private(self):
+        print(f"Fruit type: {fruit}")
+
+    def __private(self) -> None:
         print("private: SuperClass")
 
-    def _protected(self):
+    def _protected(self) -> None:
         print("protected: SuperClass")
 
-    def public(self):
+    def public(self) -> None:
         """Function public() is accessible directly"""
         print("public(): SuperClass")
 
@@ -81,14 +83,24 @@ class SubClass(SuperClass):
     """Class
     provides a new signature for public() but does not break __init__()"""
 
-    def public(self):
+    def __init__(self) -> None:
+        # The super() function is a built-in function that can be called inside
+        # the derived class and gives access to the methods and variables of
+        # the parent classes or sibling classes. Sibling classes are the
+        # classes that share the same parent class. When you call the super()
+        # function, you get an object that represents the parent class in
+        # return.
+        super().__init__("Apple")
+        print("Apple is sweet")
+
+    def public(self) -> None:
         print("public(): In SubClass")
 
 
 def method_overriding() -> None:
     """Function demonstrates method overriding"""
 
-    super_class_obj = SuperClass()
+    super_class_obj = SuperClass("Pineapple")
     sub_class_obj = SubClass()
     super_class_obj.public()  # public: SuperClass
     sub_class_obj.public()  # public: In SubClass
@@ -104,3 +116,29 @@ def polymorphism() -> None:
     sequence = [1, 2, 3]
     print(len(string))  # 4
     print(len(sequence))  # 3
+
+
+def inheritance() -> None:
+    """Function demonstrate inheritance"""
+
+    def built_in_functions() -> None:
+        """Function Built-in functions"""
+        # There are two built-in functions that can come in handy when trying to
+        # find the relationship between different classes and objects:
+        # issubclass() and isinstance().
+
+        print(
+            f"issubclass(SubClass, SuperClass) = {issubclass(SubClass, SuperClass)}"
+        )  # issubclass(SubClass, SuperClass) = True
+        print(
+            f"issubclass(SuperClass, SubClass) = {issubclass(SuperClass, SubClass)}"
+        )  # issubclass(SuperClass, SubClass) = False
+
+        sub_class = SubClass()
+        print("sub_class = SubClass()")
+        print(f"isinstance(sub_class, SubClass) = {isinstance(sub_class, SubClass)}")
+
+        fruit_apple = SubClass()
+        print(isinstance(fruit_apple, SubClass))
+
+    built_in_functions()
