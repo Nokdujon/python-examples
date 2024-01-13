@@ -13,6 +13,20 @@ class Student:
         """
         self._name: str = given_name  # Protected member ‘name’
         self.__age: int = given_age  # Private member ‘age’
+        self.show()
+
+    def show(self) -> None:
+        """Function showing a student's properties"""
+        print(self._name)
+        print(self.__age)
+
+    def get_name(self) -> str:
+        """Function retruning a student's name"""
+        return self._name
+
+    def get_age(self) -> int:
+        """Function returning a student's age"""
+        return self.__age
 
 
 def name_mangling() -> None:
@@ -26,7 +40,17 @@ def name_mangling() -> None:
     Class is the name of the class and identifier is the data member that I want to access."""
 
     s1 = Student("Santhosh", 21)
-    print(s1._Student__age)
+
+    # Accessing a protected member
+    print(f"s1._name = {s1._name}")  # s1._name = Santhosh
+    print(f"s1.get_name() = {s1.get_name()}")  # s1.get_name() = Santhosh
+
+    # Accessing a private member
+    print(f"s1.get_age() = {s1.get_age()}")  # s1.get_age() = 21
+    print(f"s1._Student__age = {s1._Student__age}")  # s1._Student__age = 21
+    print(
+        f"s1.__age = {s1.__age}"
+    )  # AttributeError: 'Student' object has no attribute '__age'.
 
 
 class SuperClass:
@@ -46,7 +70,8 @@ class SuperClass:
         print("protected: SuperClass")
 
     def public(self):
-        print("public: SuperClass")
+        """Function public() is accessible directly"""
+        print("public(): SuperClass")
 
     # private copy of original public() method
     __public = public
@@ -54,14 +79,15 @@ class SuperClass:
 
 class SubClass(SuperClass):
     """Class
-    provides new signature for public() but does not break __init__()"""
+    provides a new signature for public() but does not break __init__()"""
 
     def public(self):
-        print("public: In SubClass")
+        print("public(): In SubClass")
 
 
 def method_overriding() -> None:
     """Function demonstrates method overriding"""
+
     super_class_obj = SuperClass()
     sub_class_obj = SubClass()
     super_class_obj.public()  # public: SuperClass
