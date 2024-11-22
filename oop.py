@@ -5,12 +5,18 @@ class Student:
     """Class encapsulation"""
 
     def __init__(self, given_name: str, given_age: int) -> None:
+        """_initialize_
+
+        Args:
+            given_name (str): _student name_
+            given_age (int): _student age_
         """
-        self._a is a protected member and can be accessed by the class and its subclasses.
-        Private members in Python are conventionally used with preceding double
-        underscores: __. self.__b is a private member of the class Alpha and
-        can only be accessed from within the class Alpha.
-        """
+
+        # self._a is a protected member and can be accessed by the class and its subclasses.
+        # Private members in Python are conventionally used with preceding double
+        # underscores: __. self.__b is a private member of the class Alpha and
+        # can only be accessed from within the class Alpha.
+
         self._name: str = given_name  # Protected member ‘name’
         self.__age: int = given_age  # Private member ‘age’
         self.show()

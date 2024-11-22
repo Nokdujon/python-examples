@@ -1,4 +1,5 @@
 """Usage of Asterisks in Python"""
+
 from functools import reduce
 
 
@@ -31,23 +32,28 @@ def packing() -> None:
     numbers = [1, 2, 3, 4, 5, 6]
     # left side should be a tuple or a list.
     (*a,) = numbers  # a = [1, 2, 3, 4, 5, 6]
+    print(a)
+
     *a, b = numbers  # a = [1, 2, 3, 4, 5],  b = 6
     (
         a,
         *b,
     ) = numbers  # a = 1, b = [2, 3, 4, 5, 6]
+    print(a, b)
+
     a, *b, c = numbers  # a = 1, b = [2, 3, 4, 5], c = 6
+    print(a, b, c)
 
 
 def unpacking() -> None:
     """4. unpacking the containers."""
-    """ Unpacking a function using positional argument.
-    This method is very useful while printing your data in a raw format
-    (without any comma and brackets ). Many of the programmer try to remove
-    comma and bracket by using a convolution of functions, Hence this simple
-    prefix asterisk can solve your problem in unpacking them."""
+    # Unpacking a function using positional argument.
+    # This method is very useful while printing your data in a raw format
+    # (without any comma and brackets ). Many of the programmer try to remove
+    # comma and bracket by using a convolution of functions, Hence this simple
+    # prefix asterisk can solve your problem in unpacking them.
 
-    def positional_args():
+    def positional_args() -> None:
         """*args(positional arguments): tuple"""
 
         def product(*numbers: int) -> int:
@@ -59,11 +65,11 @@ def unpacking() -> None:
 
         args = [3, 6]
         print(
-            "sum(number for number in range(3, 6)) =",
+            "sum(number for number in range(3, 6)) = ",
             sum(number for number in range(3, 6)),
         )
         print(
-            "sum(number for number in range(*args)) =",
+            "sum(number for number in range(*args)) = ",
             sum(number for number in range(*args)),
         )  # range(*args) == range(3, 6)
 
@@ -84,3 +90,6 @@ def unpacking() -> None:
             "Host": "http://mingrammer.com",
         }
         pre_process(**headers)
+
+    positional_args()
+    keyword_args()
