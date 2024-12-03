@@ -24,3 +24,26 @@ def using_print() -> None:
     )
 
     print(f"My favorite football club is {favorite_football_club}.")  # Support for 3.6+
+
+
+total: int = 0
+
+
+def use_global_variable() -> None:
+    """_global-statement_
+    Used when you use the "global" statement to update a global variable.
+    Returns:
+        _type_: _None_
+    """
+
+    global total
+
+    def increase(number, interval):
+        return number + interval
+
+    for _ in range(10):
+        total = increase(total, 1)
+        print(f"total = {total},", end=" ")
+
+
+use_global_variable()
