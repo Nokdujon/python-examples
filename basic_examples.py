@@ -91,8 +91,8 @@ def use_global_variable() -> None:
 
     global total
 
-    def increase(number, interval):
-        return number + interval
+    def increase(number, step):
+        return number + step
 
     for _ in range(10):
         total = increase(total, 1)
