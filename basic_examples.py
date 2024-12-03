@@ -1,7 +1,7 @@
 """essential examples"""
 
 
-def using_print() -> None:
+def use_print() -> None:
     """_examples of using the print function_"""
 
     favorite_player: str = "Dennis Bergkamp"
@@ -44,6 +44,3 @@ def use_global_variable() -> None:
     for _ in range(10):
         total = increase(total, 1)
         print(f"total = {total},", end=" ")
-
-
-use_global_variable()
