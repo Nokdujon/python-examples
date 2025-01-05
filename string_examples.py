@@ -29,3 +29,6 @@ count_down: list[int] = [number for number in range(10, -1, -1)]
 # String object is immutable.
 # name[0] = 'H' wrong! using str.replace() instead of assignment.
 new_name: str = name.replace("h", "H")
+
+# count in string
+print("abcc".count("c"))
